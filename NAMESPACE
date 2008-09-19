@@ -1,0 +1,37 @@
+useDynLib( "intervals" )
+
+export( "Intervals", "Intervals_full", "clusters" )
+
+exportClasses( "Intervals", "Intervals_full" )
+
+importFrom( "utils", "head", "tail" )
+
+# Note that "initialize" methods do not seem necessary here, nor in
+# documentation.
+
+exportMethods(
+              "[",
+              "adjust_closure",
+              "close_intervals",
+              "closed", "closed<-",
+              "coerce",
+              "contract",
+              "combine",
+              "distance_to_nearest",
+              "empty",
+              "expand",
+              "head",
+              "initialize",
+              "interval_complement",
+              "interval_difference",
+              "interval_intersection",
+              "interval_overlap",
+              "interval_union",
+              "open_intervals",
+              "reduce",
+              "show",
+              "size",
+              "t",
+              "tail",
+              "type", "type<-"
+              )
