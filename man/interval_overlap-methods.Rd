@@ -2,36 +2,35 @@
 
 \alias{interval_overlap}
 \alias{interval_overlap,Intervals_virtual,Intervals_virtual-method}
-\alias{interval_overlap,numeric,Intervals_virtual-method}
+\alias{interval_overlap,Intervals_virtual,numeric-method}
 
 \title{Assess which query intervals overlap which targets}
 
 \description{
-  Given two objects, a query and a target, assess which query intervals
-  overlap which targets.
+  Given two objects, a set of query intervals and a set of
+  targets, assess which query intervals, if any, overlap each target.
 }
 
 \usage{
-\S4method{interval_overlap}{Intervals_virtual,Intervals_virtual}(query, target, check_valid = TRUE)
+\S4method{interval_overlap}{Intervals_virtual,Intervals_virtual}(target, query, check_valid = TRUE)
 
-\S4method{interval_overlap}{numeric,Intervals_virtual}(query, target, check_valid = TRUE)
+\S4method{interval_overlap}{Intervals_virtual,numeric}(target, query, check_valid = TRUE)
 }
 
 \arguments{
   
-  \item{query}{
-    An \code{"Intervals"} or \code{"Intervals_full"}
-    object. If a numeric vector is supplied instead, the function checks
-    to see which \emph{points} are included in the intervals of
-    \code{target}.
-  }
-
   \item{target}{
     An \code{"Intervals"} or \code{"Intervals_full"} object. The
     \code{target} object must have the same \code{\link{type}} as
-    \code{query}. 
+    \code{query}, unless \code{query} is of type \code{"numeric"}. 
   }
   
+  \item{query}{
+    An \code{"Intervals"} or \code{"Intervals_full"}
+    object. If a numeric vector is supplied instead, the function checks
+    to see which \emph{points} are included in the targets.
+  }
+
   \item{check\_valid}{
     Should \code{\link{validObject}} be called before passing to
     compiled code? This, among other things, verifies that endpoints are
@@ -45,10 +44,13 @@
 \details{
   Intervals which meet at endpoints overlap only if both endpoints are
   closed. Intervals in \code{query} with \code{NA} endpoints are
-  ignored, with a warning; in \code{target}, such interval produce no
+  ignored, with a warning; in \code{target}, such intervals produce no
   matches. Intervals in either \code{query} or \code{target} which are
   actually empty have their endpoints set to \code{NA} before
-  proceeding, with warning, and so do not generate matches.
+  proceeding, with warning, and so do not generate matches. If
+  \code{query} is of type \code{"numeric"} and \code{type(target)} is
+  \code{"Z"}, then non-integer entries of \code{query} will be set to
+  \code{NA}, with warning.
 }
 
 \value{
@@ -56,7 +58,7 @@
   are vectors of indices, indicating which \code{query} rows (or query
   components, for the \code{"numeric"} method) overlap each target. A
   list element of length 0 indicates a target with no overlapping query
-  intervals.
+  elements.
 }
 
 \note{
@@ -100,7 +102,7 @@ rownames(t) <- letters[1:nrow(t)]
 empty(q)
 empty(t)
 
-interval_overlap(q, t)
+interval_overlap(t, q)
 
 # Non-empty real intevals of size 0 can overlap other intervals.
 
@@ -113,9 +115,14 @@ v
 empty(v)
 size(v)
 
-interval_overlap( u, v )
+interval_overlap(v, u)
 
 # Querying points
 
-interval_overlap( c( 2, 3, 6, NA ), t )
+interval_overlap( t, c( 2, 3, 6, NA ) )
+
+# Non-integer points dropped for targets over Z
+
+interval_overlap( q, c( 2, 2.5, 3 ) )
+interval_overlap( u, c( 2, 2.5, 3 ) )
 }

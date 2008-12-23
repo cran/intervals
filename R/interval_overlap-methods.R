@@ -1,9 +1,9 @@
-setGeneric( "interval_overlap", def = function( query, target, ... ) standardGeneric( "interval_overlap" ) )
+setGeneric( "interval_overlap", def = function( target, query, ... ) standardGeneric( "interval_overlap" ) )
 
 setMethod(
           "interval_overlap",
           signature( "Intervals_virtual", "Intervals_virtual" ),
-          function( query, target, check_valid = TRUE ) {
+          function( target, query, check_valid = TRUE ) {
             if ( check_valid && !( validObject(query) && validObject(target) ) )
               stop( "The 'query' and/or 'target' objects are invalid." )
             if ( type(query) != type(target) )
@@ -29,13 +29,20 @@ setMethod(
 
 setMethod(
           "interval_overlap",
-          signature( "numeric", "Intervals_virtual" ),
-          function( query, target, check_valid = TRUE ) {
+          signature( "Intervals_virtual", "numeric" ),
+          function( target, query, check_valid = TRUE ) {
             if ( check_valid && !validObject(target) )
               stop( "The 'target' object is invalid." )
             if ( any( empty( target ), na.rm = TRUE ) ) {
               warning( "Some empty target intervals encountered. Setting to NA...", call. = FALSE )
               target[ empty(target), ] <- NA
+            }            
+            if ( type( target ) == "Z" ) {
+              non_int <- ( query %% 1 != 0 )
+              if ( any( non_int, na.rm = TRUE ) ) {
+                warning( "The 'target' object is of type 'Z'. Setting non-integer values in 'query' to NA.", call. = FALSE )
+                query[ non_int ] <- NA
+              }
             }
             result <- .Call(
                             "_interval_overlap",
