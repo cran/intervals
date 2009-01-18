@@ -1,6 +1,6 @@
 Package: intervals
-Version: 0.9.10
-Date: 2008-12-23
+Version: 0.10.3
+Date: 2009-01-18
 Type: Package
 Title: Tools for working with points and intervals
 Author: Richard Bourgon <bourgon@ebi.ac.uk>
@@ -11,5 +11,5 @@ Description:
   Tools for working with and comparing sets of points and intervals.
 License: Artistic-2.0
 LazyLoad: yes
-Revision: 226
-Packaged: Mon Jan 12 05:11:13 2009; rforge
+Revision: 246
+Packaged: Mon Jan 19 05:23:35 2009; rforge
