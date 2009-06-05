@@ -19,7 +19,7 @@
 \alias{type<-}
 \alias{type<-,Intervals_virtual-method}
 
-\title{Class "Intervals\_virtual"}
+\title{Class "Intervals_virtual"}
 
 \description{
   A virtual class from which the \code{"Intervals"} and
@@ -31,18 +31,18 @@
   \describe{
 
     \item{\code{.Data}:}{
-      Object of class \code{matrix}. A two-column, numeric (see below)
+      Object of class \code{"matrix"}. A two-column, numeric (see below)
       format is required. For a valid object, no value in the first
       column may exceed its partner in the second column. (Note that
       this \emph{does} permit empty interval rows, when both endpoints
       are of equal value and not both closed.) Only integral (though not
-      \code{integer} class) endpoints are permitted if \code{type} is
+      \code{"integer"} class) endpoints are permitted if \code{type} is
       \code{"Z"}. See the note on this point in documentation for
-      \code{\linkS4class{Intervals}}.
+      \code{"\linkS4class{Intervals}"}.
     }
     
     \item{\code{type}:}{
-      Object of class \code{character}. A one-element character vector
+      Object of class \code{"character"}. A one-element character vector
       with either \code{"Z"} or \code{"R"} is required.
     }
     
@@ -89,12 +89,14 @@
     \item{tail}{ \code{signature(x = "Intervals_virtual")} }
     \item{type}{ \code{signature(x = "Intervals_virtual")} }
     \item{type<-}{ \code{signature(x = "Intervals_virtual")} }
+    \item{which\_nearest}{ \code{signature(from = "numeric", to = "Intervals_virtual")} }
+    \item{which\_nearest}{ \code{signature(from = "Intervals_virtual", to = "Intervals_virtual")} }
   }
 }
 
 \seealso{
-  See the \code{\linkS4class{Intervals}} and
-  \code{\linkS4class{Intervals_full}} classes.
+  See the \code{"\linkS4class{Intervals}"} and
+  \code{"\linkS4class{Intervals_full}"} classes.
 }
 
 \keyword{classes}

@@ -1,40 +1,39 @@
 \name{interval_overlap}
 
 \alias{interval_overlap}
-\alias{interval_overlap,Intervals_virtual,Intervals_virtual-method}
-\alias{interval_overlap,Intervals_virtual,numeric-method}
+\alias{interval_overlap,Intervals_virtual_or_numeric,Intervals_virtual_or_numeric-method}
+\alias{interval_overlap,missing,ANY-method}
+\alias{interval_overlap,ANY,missing-method}
 
-\title{Assess which query intervals overlap which targets}
+\title{Assess overlap from one set of intervals to another}
 
 \description{
-  Given two objects, a set of query intervals and a set of
-  targets, assess which query intervals, if any, overlap each target.
+  Asses overlap from intervals in one set to intervals in another set,
+  and return the relevant indices.
 }
 
 \usage{
-\S4method{interval_overlap}{Intervals_virtual,Intervals_virtual}(target, query, check_valid = TRUE)
-
-\S4method{interval_overlap}{Intervals_virtual,numeric}(target, query, check_valid = TRUE)
+\S4method{interval_overlap}{Intervals_virtual_or_numeric,Intervals_virtual_or_numeric}(from, to, check_valid = TRUE)
 }
 
 \arguments{
   
-  \item{target}{
-    An \code{"Intervals"} or \code{"Intervals_full"} object. The
-    \code{target} object must have the same \code{\link{type}} as
-    \code{query}, unless \code{query} is of type \code{"numeric"}. 
+  \item{from}{
+    An \code{"Intervals"} or \code{"Intervals_full"} object, or a
+    vector of class \code{"numeric"}. \emph{Note!} Prior to v. 0.11.1,
+    this argument was called \code{target}.
   }
   
-  \item{query}{
-    An \code{"Intervals"} or \code{"Intervals_full"}
-    object. If a numeric vector is supplied instead, the function checks
-    to see which \emph{points} are included in the targets.
+  \item{to}{
+    An \code{"Intervals"} or \code{"Intervals_full"} object, or a
+    vector of class \code{"numeric"}. \emph{Note!} Prior to v. 0.11.1,
+    this argument was called \code{query}.
   }
 
   \item{check_valid}{
     Should \code{\link{validObject}} be called before passing to
     compiled code? This, among other things, verifies that endpoints are
-    of data type \code{numeric} and the \code{closed} vector/matrix is
+    of data type \code{"numeric"} and the \code{closed} vector/matrix is
     appropriately sized and of the correct data type. (Compiled code
     does no further checking.)
   }
@@ -43,34 +42,40 @@
 
 \details{
   Intervals which meet at endpoints overlap only if both endpoints are
-  closed. Intervals in \code{query} with \code{NA} endpoints are
-  ignored, with a warning; in \code{target}, such intervals produce no
-  matches. Intervals in either \code{query} or \code{target} which are
+  closed. Intervals in \code{to} with \code{NA} endpoints are
+  ignored, with a warning; in \code{from}, such intervals produce no
+  matches. Intervals in either \code{to} or \code{from} which are
   actually empty have their endpoints set to \code{NA} before
   proceeding, with warning, and so do not generate matches. If
-  \code{query} is of type \code{"numeric"} and \code{type(target)} is
-  \code{"Z"}, then non-integer entries of \code{query} will be set to
-  \code{NA}, with warning.
+  eith \code{to} or \code{from} is a vector of class \code{"numeric"},
+  overlap will be assess for the corresponding set of points.
 }
 
 \value{
-  A list, with one element for each row of \code{target}. The elements
-  are vectors of indices, indicating which \code{query} rows (or query
-  components, for the \code{"numeric"} method) overlap each target. A
-  list element of length 0 indicates a target with no overlapping query
+  A list, with one element for each row/component of \code{from}. The
+  elements are vectors of indices, indicating which \code{to} rows (or
+  components, for the \code{"numeric"} method) overlap each interval in
+  \code{from}. A list element of length 0 indicates no overlapping
   elements.
 }
 
 \note{
-  If you want real (\code{type = "R"}) intervals that overlap in a set
-  of positive measure -- not just at endpoints -- set all endpoints to
-  open (i.e., \code{closed(query) <- FALSE}) first. 
+  If you want real (\code{type == "R"}) intervals that overlap in a set
+  of positive measure --- not just at endpoints --- set all endpoints to
+  open (i.e., \code{close(from) <- FALSE; closed(to) <- FALSE}) first.
+  
+  This function is now just a wrapper for \code{\link{which_nearest}}.
+}
+
+\seealso{
+  See \code{\link{which_nearest}} for details on nearby as well as
+  overlapping intervals in \code{to}.
 }
 
 \examples{
-# Note that t contains a valid but empty interval.
+# Note that 'from' contains a valid but empty interval.
 
-q <- Intervals(
+to <- Intervals(
                matrix(
                       c(
                         2,  8,
@@ -83,7 +88,7 @@ q <- Intervals(
                type = "Z"
                )
 
-t <- Intervals(
+from <- Intervals(
                matrix(
                       c(
                          2,  8,
@@ -97,16 +102,16 @@ t <- Intervals(
                closed = c( TRUE, FALSE ),
                type = "Z"
                )
-rownames(t) <- letters[1:nrow(t)]
+rownames(from) <- letters[1:nrow(from)]
 
-empty(q)
-empty(t)
+empty(to)
+empty(from)
 
-interval_overlap(t, q)
+interval_overlap(from, to)
 
 # Non-empty real intevals of size 0 can overlap other intervals.
 
-u <- q
+u <- to
 type(u) <- "R"
 
 v <- Intervals_full( rep(3,4) )
@@ -117,12 +122,7 @@ size(v)
 
 interval_overlap(v, u)
 
-# Querying points
+# Working with points
 
-interval_overlap( t, c( 2, 3, 6, NA ) )
-
-# Non-integer points dropped for targets over Z
-
-interval_overlap( q, c( 2, 2.5, 3 ) )
-interval_overlap( u, c( 2, 2.5, 3 ) )
+interval_overlap( from, c( 2, 3, 6, NA ) )
 }

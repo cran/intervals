@@ -33,10 +33,12 @@ Tools for working with and comparing sets of points and intervals.
     \item{\code{\link{interval_overlap}}}{Assess which query intervals overlap which targets.}
     \item{\code{\link{interval_union}}}{Compute the union of intervals in one or more interval matrices.}
     \item{\code{\link{is.na}}}{Identify interval rows with \code{NA} endpoints.}
+    \item{\code{\link[=plot.Intervals]{plot}}}{S3 plotting methods for intervals objects.}
     \item{\code{\link{reduce}}}{Compactly re-represent the points in a set of intervals.}
     \item{\code{\link{sgd}}}{Yeast gene model sample data.}
     \item{\code{\link{size}}}{Compute interval sizes.}
     \item{\code{\link{type}}}{Accessor for \code{type} slot: Z or R.}
+    \item{\code{\link{which_nearest}}}{Identify nearest member(s) in a set of intervals.}
   }
   
   Further information is available in the following vignettes:
@@ -58,6 +60,6 @@ Richard Bourgon <bourgon@ebi.ac.uk>
 }
 
 \seealso{
-  See the \code{genomeIntervals} package in Bioconductor, which extends
+  See the \pkg{genomeIntervals} package in Bioconductor, which extends
   the functionality of this package.
 }

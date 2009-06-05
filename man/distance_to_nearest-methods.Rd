@@ -1,8 +1,7 @@
 \name{distance_to_nearest}
 
 \alias{distance_to_nearest}
-\alias{distance_to_nearest,numeric,Intervals_virtual-method}
-\alias{distance_to_nearest,Intervals_virtual,Intervals_virtual-method}
+\alias{distance_to_nearest,Intervals_virtual_or_numeric,Intervals_virtual_or_numeric-method}
 
 \title{Compute distance to nearest position in a set of intervals}
 
@@ -12,9 +11,7 @@
 }
 
 \usage{
-\S4method{distance_to_nearest}{numeric,Intervals_virtual}(from, to, check_valid = TRUE)
-
-\S4method{distance_to_nearest}{Intervals_virtual,Intervals_virtual}(from, to, check_valid = TRUE)
+\S4method{distance_to_nearest}{Intervals_virtual_or_numeric,Intervals_virtual_or_numeric}(from, to, check_valid = TRUE)
 }
 
 \arguments{
@@ -38,7 +35,12 @@
 }
 
 \note{
-  Distances are computed efficiently using \code{\link{approxfun}}.
+  This function is now just a wrapper for \code{\link{which_nearest}}.
+}
+
+\seealso{
+  See \code{\link{which_nearest}}, which also returns indices for the
+  interval or intervals (in case of ties) at the distance reported.
 }
 
 \examples{
