@@ -1,11 +1,11 @@
 Package: intervals
-Version: 0.12.0
-Date: 2009-06-05
+Version: 0.12.1
+Date: 2009-06-10
 Type: Package
 Title: Tools for working with points and intervals
 Author: Richard Bourgon <bourgon@ebi.ac.uk>
 Maintainer: Richard Bourgon <bourgon@ebi.ac.uk>
-Depends: R (>= 2.8.0), methods
+Depends: R (>= 2.9.0), methods
 Suggests:
 Description: Tools for working with and comparing sets of points and
         intervals.
@@ -13,6 +13,6 @@ License: Artistic-2.0
 LazyLoad: yes
 Repository: CRAN
 Repository/R-Forge/Project: intervals
-Repository/R-Forge/Revision: 274
-Date/Publication: 2009-06-08 16:25:33
-Packaged: 2009-06-08 03:25:44 UTC; rforge
+Repository/R-Forge/Revision: 275
+Date/Publication: 2009-06-14 19:08:28
+Packaged: 2009-06-12 03:30:14 UTC; rforge
