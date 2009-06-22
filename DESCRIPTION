@@ -1,6 +1,6 @@
 Package: intervals
-Version: 0.12.1
-Date: 2009-06-10
+Version: 0.12.2
+Date: 2009-06-22
 Type: Package
 Title: Tools for working with points and intervals
 Author: Richard Bourgon <bourgon@ebi.ac.uk>
@@ -13,6 +13,6 @@ License: Artistic-2.0
 LazyLoad: yes
 Repository: CRAN
 Repository/R-Forge/Project: intervals
-Repository/R-Forge/Revision: 275
-Date/Publication: 2009-06-14 19:08:28
-Packaged: 2009-06-12 03:30:14 UTC; rforge
+Repository/R-Forge/Revision: 276
+Date/Publication: 2009-06-28 16:49:39
+Packaged: 2009-06-26 20:59:32 UTC; rforge
