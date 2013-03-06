@@ -76,12 +76,7 @@ extern "C"
     SEXP result;
 
     PROTECT( result = allocVector( INTSXP, n ) );    
-
-    copy( 
-	 y.begin(), y.end(),
-	 std::vector<int>::iterator ( INTEGER( result ) )
-	  );
-    
+    copy( y.begin(), y.end(), INTEGER( result ) );
     UNPROTECT(1);
     return( result );    
 

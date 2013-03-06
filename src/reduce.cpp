@@ -66,24 +66,21 @@ extern "C"
     PROTECT( result = allocVector( VECSXP, 2 ) );    
 
     SET_VECTOR_ELT( result, 0, allocMatrix( REALSXP, start.size(), 2 ) );
-    copy( 
-	 start.begin(), start.end(),
-	 std::vector<double>::iterator ( REAL( VECTOR_ELT( result, 0 ) ) )
-	  );
+    copy( start.begin(), start.end(), REAL( VECTOR_ELT( result, 0 ) ) );
     copy( 
 	 end.begin(), end.end(),
-	 std::vector<double>::iterator ( REAL( VECTOR_ELT( result, 0 ) ) + start.size() )
+	 REAL( VECTOR_ELT( result, 0 ) ) + start.size() 
 	  );
 
     if ( full_bool ) {
       SET_VECTOR_ELT( result, 1, allocMatrix( LGLSXP, start.size(), 2 ) );
       copy( 
     	   start_c.begin(), start_c.end(),
-    	   std::vector<int>::iterator ( LOGICAL( VECTOR_ELT( result, 1 ) ) )
+    	   LOGICAL( VECTOR_ELT( result, 1 ) )
     	    );
       copy( 
     	   end_c.begin(), end_c.end(),
-    	   std::vector<int>::iterator ( LOGICAL( VECTOR_ELT( result, 1 ) ) + start.size() )
+    	   LOGICAL( VECTOR_ELT( result, 1 ) ) + start.size()
     	    );
     }
     else {
