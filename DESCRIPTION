@@ -1,17 +1,17 @@
 Package: intervals
-Version: 0.14.0
-Date: 2013-03-06
+Version: 0.15.0
+Date: 2014-09-19
 Type: Package
 Title: Tools for working with points and intervals
 Author: Richard Bourgon <bourgon.richard@gene.com>
-Maintainer: Richard Bourgon <bourgon.richard@gene.com>
-Depends: R (>= 2.9.0), methods
-Suggests:
-Description: Tools for working with and comparing sets of points and
-        intervals.
+Maintainer: Edzer Pebesma <edzer.pebesma@uni-muenster.de>
+Depends: R (>= 2.9.0)
+Imports: methods
+Description: Tools for working with and comparing sets of points and intervals.
 License: Artistic-2.0
 LazyLoad: yes
-Packaged: 2013-11-03 17:10:26 UTC; hornik
+URL: http://github.com/edzer/intervals
+Packaged: 2014-09-19 19:29:06 UTC; edzer
 NeedsCompilation: yes
 Repository: CRAN
-Date/Publication: 2013-11-03 18:23:55
+Date/Publication: 2014-09-19 21:55:49

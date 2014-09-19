@@ -2,39 +2,31 @@
 
 useDynLib( "intervals" )
 
-
-
-
 ######## Imports
 
 # Class, method, and regular imports from the methods package are not listed
 # here, since we depend on the package.
 
+import("methods")
+
 importFrom( "utils", "head", "tail" )
-
-
-
 
 ######## Exports
 
 export( "Intervals", "Intervals_full" )
 
 S3method( "split", "Intervals_virtual" )
-
 S3method( "as.matrix", "Intervals_virtual" )
-
 S3method( "c", "Intervals" )
 S3method( "c", "Intervals_full" )
-
 S3method( "plot", "Intervals" )
 S3method( "plot", "Intervals_full" )
-
 exportClasses(
   "Intervals",
   "Intervals_full",
   "Intervals_virtual",
   "Intervals_virtual_or_numeric"
-  )
+)
 
 exportMethods(
   "[",
@@ -70,4 +62,4 @@ exportMethods(
   "type",
   "type<-",
   "which_nearest"
-  )
+)
