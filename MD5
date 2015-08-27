@@ -1,5 +1,5 @@
-5584e918f7ca0fb6189a6cbb7dadd059 *DESCRIPTION
-6a083729d03bbeb7e1c19dba7eeaf041 *NAMESPACE
+a74894e575795e85a5653f34ba4422c2 *DESCRIPTION
+c6e176fe4cd6683b2d365f8eb34ac7aa *NAMESPACE
 395419ebcf2325cd51382cf869b7ce5c *NEWS
 5d3f4dfbcb8c9119dd1562ccbc412467 *R/Intervals-class.R
 b324268152a9423e6c65c0c988d6c54b *R/as.matrix.R
@@ -26,11 +26,12 @@ f60a5d3db5f7ffdc7b2e2f89ad73aa8e *R/split.R
 1f063de2558da95b89939fe6ded3cb17 *R/t-methods.R
 269d9904ee4f9077977318a06c0ea80b *R/type-methods.R
 68f0dd826dd4eacc4f1dd5b9563ca0a6 *R/which_nearest-methods.R
-38f45d61d208fded53b84d3c4bdd4496 *build/vignette.rds
+60793fb2d261c953e3439bcc2a604cd3 *README.md
+b7e37f83b50853dfd3204cd25ed5718d *build/vignette.rds
 92331b5a7c5d0c6c690134be22d279fd *data/sgd.rdata
 a2f1dae28510f0ca5a3cb5089741ff79 *inst/doc/intervals_overview.R
 61b77aed42f5d4a9517527dfd20dcd9f *inst/doc/intervals_overview.Rnw
-4c6aeab2c97a624ff212045b36e2daa5 *inst/doc/intervals_overview.pdf
+cc027c079cdfa5acb1690a5f30e6e615 *inst/doc/intervals_overview.pdf
 35de4238afd3ef852acdffeaee785700 *man/Intervals-class.Rd
 0177e9e1b85eacda57458bfe8298c35c *man/Intervals_virtual-class.Rd
 e3e3202f6d824d8f23a435eb9ebf58d1 *man/Intervals_virtual_or_numeric-class.Rd
@@ -58,6 +59,6 @@ c02935db7a4e097bf4316e967f41cb67 *man/size-methods.Rd
 7a32b00c4f944861c37a65658958b93c *src/Endpoint.h
 21e3c6ce0a8cb6f07ce6e0e0cc049316 *src/plot_overlap.cpp
 07904a7e49cad3fa6b13cb957818460b *src/reduce.cpp
-5419ee07a71faefc60ec68a9dd67d451 *src/which_nearest.cpp
+83547bba3939f547c08581e70bfed484 *src/which_nearest.cpp
 477a72cf673ae334fb367f84bc7870e0 *tests/intervals_test_code.R
 61b77aed42f5d4a9517527dfd20dcd9f *vignettes/intervals_overview.Rnw
