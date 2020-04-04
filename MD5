@@ -1,7 +1,7 @@
-a74894e575795e85a5653f34ba4422c2 *DESCRIPTION
+e65f90fdb7fb60396bdd5661b763151a *DESCRIPTION
 c6e176fe4cd6683b2d365f8eb34ac7aa *NAMESPACE
 395419ebcf2325cd51382cf869b7ce5c *NEWS
-5d3f4dfbcb8c9119dd1562ccbc412467 *R/Intervals-class.R
+c1464bdb0e8865f61d0512cb8a0441c1 *R/Intervals-class.R
 b324268152a9423e6c65c0c988d6c54b *R/as.matrix.R
 38bfefc3e9a840c8c923c89880c1587c *R/c.R
 34cd12ab4fe68a81147862e97b15949f *R/close_intervals-methods.R
@@ -26,12 +26,11 @@ f60a5d3db5f7ffdc7b2e2f89ad73aa8e *R/split.R
 1f063de2558da95b89939fe6ded3cb17 *R/t-methods.R
 269d9904ee4f9077977318a06c0ea80b *R/type-methods.R
 68f0dd826dd4eacc4f1dd5b9563ca0a6 *R/which_nearest-methods.R
-60793fb2d261c953e3439bcc2a604cd3 *README.md
-b7e37f83b50853dfd3204cd25ed5718d *build/vignette.rds
+5e996aad9e13f0d0948c3c0f7d0b9aa2 *build/vignette.rds
 92331b5a7c5d0c6c690134be22d279fd *data/sgd.rdata
 a2f1dae28510f0ca5a3cb5089741ff79 *inst/doc/intervals_overview.R
 61b77aed42f5d4a9517527dfd20dcd9f *inst/doc/intervals_overview.Rnw
-cc027c079cdfa5acb1690a5f30e6e615 *inst/doc/intervals_overview.pdf
+225f133c054b5dad01c81a7264385796 *inst/doc/intervals_overview.pdf
 35de4238afd3ef852acdffeaee785700 *man/Intervals-class.Rd
 0177e9e1b85eacda57458bfe8298c35c *man/Intervals_virtual-class.Rd
 e3e3202f6d824d8f23a435eb9ebf58d1 *man/Intervals_virtual_or_numeric-class.Rd
@@ -46,7 +45,7 @@ e382cd554673c0068670a67278c6115a *man/expand-methods.Rd
 d5e010258d8a735cf40deb9f5a46dfaf *man/interval_difference-methods.Rd
 f294dea1388f4faa935666279c852ceb *man/interval_included-methods.Rd
 5795101b91efd8d1858b2a883716d9da *man/interval_intersection-methods.Rd
-0800a00a632882b9723a3df5d80d3160 *man/interval_overlap-methods.Rd
+97d415407f45afca6e23199e86def39f *man/interval_overlap-methods.Rd
 8c3d9577d7b5ee414115951dc669f921 *man/interval_union-methods.Rd
 e4fe3b5b457265fdfc8bf6b6ff82ae8b *man/intervals-package.Rd
 a0f85d87af5844eb046f54e67d62331a *man/plot.Intervals.Rd
@@ -57,6 +56,7 @@ c02935db7a4e097bf4316e967f41cb67 *man/size-methods.Rd
 32a4b517594cd57c13e31a54ce542808 *man/which_nearest-methods.Rd
 8e00c2c424c18850880d2273098bfa60 *src/Endpoint.cpp
 7a32b00c4f944861c37a65658958b93c *src/Endpoint.h
+60813f1ca40525d22e04f8e141623b12 *src/init.c
 21e3c6ce0a8cb6f07ce6e0e0cc049316 *src/plot_overlap.cpp
 07904a7e49cad3fa6b13cb957818460b *src/reduce.cpp
 83547bba3939f547c08581e70bfed484 *src/which_nearest.cpp
